@@ -1,25 +1,31 @@
-# main.py
-from transmuting import IcoTransmuting, GifTransmuting, JpegTransmuting, PngTransmuting
+from Transforming import IcoTransmuting, GifTransmuting, JpegTransmuting, PngTransmuting
+import os
 
 
-def transmuting(filenames, output_path, format):
+def transmuting(folder_path, output_path, format):
+    filenames = []
+    for file_name in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, file_name)
+        if os.path.isfile(file_path):
+            filenames.append(file_path)
+
     for filename in filenames:
         if format == 'ICO':
             converter = IcoTransmuting(filename, output_path)
-            converter.convert_to_ico()
+            converter.convert()
         elif format == 'GIF':
             converter = GifTransmuting(filename, output_path)
-            converter.convert_to_gif()
+            converter.convert()
         elif format == 'JPEG':
             converter = JpegTransmuting(filename, output_path)
-            converter.convert_to_jpeg()
+            converter.convert()
         elif format == 'PNG':
             converter = PngTransmuting(filename, output_path)
-            converter.convert_to_png()
+            converter.convert()
         else:
             raise ValueError('Invalid format')
 
 
 if __name__ == '__main__':
-    transmuting(filenames=['./python-image/IMG_4360.JPG'],
+    transmuting(folder_path='./image/',
                 output_path='./test', format='PNG')
