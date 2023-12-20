@@ -1,5 +1,7 @@
 from Utils import Converter, Utils
 import os
+IMAGE_PATH = 'image'
+COMPLETED_PATH = 'completed'
 
 
 def transmuting(folder_path, output_path, format):
@@ -12,6 +14,6 @@ def transmuting(folder_path, output_path, format):
 
 if __name__ == '__main__':
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    image_dir = os.path.join(script_dir, 'image')
-    output_dir = os.path.join(script_dir, 'completed')
+    image_dir = os.path.join(script_dir, IMAGE_PATH)
+    output_dir = os.path.join(script_dir, COMPLETED_PATH)
     transmuting(folder_path=image_dir, output_path=output_dir, format='PNG')
