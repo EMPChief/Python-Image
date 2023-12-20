@@ -16,4 +16,4 @@ if __name__ == '__main__':
     script_dir = os.path.dirname(os.path.abspath(__file__))
     image_dir = os.path.join(script_dir, IMAGE_PATH)
     output_dir = os.path.join(script_dir, COMPLETED_PATH)
-    transmuting(folder_path=image_dir, output_path=output_dir, format='PNG')
+    transmuting(folder_path=image_dir, output_path=output_dir, format='JPEG')
