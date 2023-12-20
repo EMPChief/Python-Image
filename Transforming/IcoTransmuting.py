@@ -1,4 +1,4 @@
-from .basic import Basic
+from .Basic import Basic
 
 
 class IcoTransmuting(Basic):

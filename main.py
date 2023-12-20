@@ -11,21 +11,27 @@ def transmuting(folder_path, output_path, format):
 
     for filename in filenames:
         if format == 'ICO':
-            converter = IcoTransmuting(filename, output_path)
+            converter = IcoTransmuting(
+                filename, os.path.join(output_path, format))
             converter.convert()
         elif format == 'GIF':
-            converter = GifTransmuting(filename, output_path)
+            converter = GifTransmuting(
+                filename, os.path.join(output_path, format))
             converter.convert()
         elif format == 'JPEG':
-            converter = JpegTransmuting(filename, output_path)
+            converter = JpegTransmuting(
+                filename, os.path.join(output_path, format))
             converter.convert()
         elif format == 'PNG':
-            converter = PngTransmuting(filename, output_path)
+            converter = PngTransmuting(
+                filename, os.path.join(output_path, format))
             converter.convert()
         else:
             raise ValueError('Invalid format')
 
 
 if __name__ == '__main__':
-    transmuting(folder_path='./image/',
-                output_path='./test', format='PNG')
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    image_dir = os.path.join(script_dir, 'image')
+    output_dir = os.path.join(script_dir, 'completed')
+    transmuting(folder_path=image_dir, output_path=output_dir, format='PNG')
